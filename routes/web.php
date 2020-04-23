@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('amazake/create', 'Admin\AmazakeController@add');
+    Route::post('amazake/create', 'Admin\AmazakeController@create'); 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
