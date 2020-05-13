@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('amazake/create', 'Admin\AmazakeController@add');
     Route::post('amazake/create', 'Admin\AmazakeController@create'); 
+    Route::get('amazake', 'Admin\AmazakeController@index');
+    Route::get('amazake/edit', 'Admin\AmazakeController@edit');
+    Route::post('amazake/edit', 'Admin\AmazakeController@update');
+    Route::get('amazake/delete', 'Admin\AmazakeController@delete');
 });
 Auth::routes();
 

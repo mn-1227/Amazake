@@ -147,10 +147,11 @@ return [
     */
 
     'attributes' => [
-        'title' => 'タイトル',
-        'amasa' => '甘さ',
-        'komekan' => '米感',
-        'kuse' => 'クセ'
+        'amazake' => '甘酒名',
+        'nedan' => '値段',
+        'en_ml' => '円/ml',
+        'kaisya' => 'メーカー',
+        'ryou' => '量',
         ],
 
 ];

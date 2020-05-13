@@ -10,9 +10,16 @@ class Amazake extends Model
 
     // 以下を追記
     public static $rules = array(
-        'title' => 'required',
-        'amasa' => 'required',
-        'komekan' => 'required',
-        'kuse' => 'required',
+        'amazake' => 'required',
+        'nedan' => 'required',
+        'ryou' => 'required',
+        'kaisya' => 'required',
+        'en_ml' => 'required',
+        
     );
+    
+    public function histories()
+    {
+      return $this->hasMany('App\AmazakeHistory');
+    }
 }

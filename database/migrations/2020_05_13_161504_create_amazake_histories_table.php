@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAmazakesTable extends Migration
+class CreateAmazakeHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateAmazakesTable extends Migration
      */
     public function up()
     {
-        Schema::create('amazakes', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('amasa');
-            $table->string('komekan');
-            $table->string('kuse');
-            $table->string('image_path')->nullable();
+        Schema::create('amazake_histories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('amazake_id');
+            $table->string('edited_at');
+
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateAmazakesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('amazakes');
+        Schema::dropIfExists('amazake_histories');
     }
 }
