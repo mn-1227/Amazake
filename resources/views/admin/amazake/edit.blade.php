@@ -123,6 +123,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-md-2" for="title">リンク</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="link" value="{{ $amazake_form->link }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $amazake_form->id }}">
                             {{ csrf_field() }}

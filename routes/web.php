@@ -18,12 +18,42 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    //甘酒情報ページ
     Route::get('amazake/create', 'Admin\AmazakeController@add');
     Route::post('amazake/create', 'Admin\AmazakeController@create'); 
     Route::get('amazake', 'Admin\AmazakeController@index');
     Route::get('amazake/edit', 'Admin\AmazakeController@edit');
     Route::post('amazake/edit', 'Admin\AmazakeController@update');
     Route::get('amazake/delete', 'Admin\AmazakeController@delete');
+    //甘酒の知識ページ
+    Route::get('tishiki/create', 'Admin\TishikiController@add');
+    Route::post('tishiki/create', 'Admin\TishikiController@create'); 
+    Route::get('tishiki', 'Admin\TishikiController@index');
+    Route::get('tishiki/edit', 'Admin\TishikiController@edit');
+    Route::post('tishiki/edit', 'Admin\TishikiController@update');
+    Route::get('tishiki/delete', 'Admin\TishikiController@delete');
+    //関連商品ページ
+    Route::get('items/create', 'Admin\ItemsController@add');
+    Route::post('items/create', 'Admin\ItemsController@create'); 
+    Route::get('items', 'Admin\ItemsController@index');
+    Route::get('items/edit', 'Admin\ItemsController@edit');
+    Route::post('items/edit', 'Admin\ItemsController@update');
+    Route::get('items/delete', 'Admin\ItemsController@delete');
+    //旅記録ページ
+    Route::get('travel/create', 'Admin\TravelController@add');
+    Route::post('travel/create', 'Admin\TravelController@create'); 
+    Route::get('travel', 'Admin\TravelController@index');
+    Route::get('travel/edit', 'Admin\TravelController@edit');
+    Route::post('travele/edit', 'Admin\TravelController@update');
+    Route::get('travel/delete', 'Admin\TravelController@delete');
+    //料理のページ
+    Route::get('cooking/create', 'Admin\CookingController@add');
+    Route::post('cooking/create', 'Admin\CookingeController@create'); 
+    Route::get('cooking', 'Admin\CookingController@index');
+    Route::get('cooking/edit', 'Admin\CookingController@edit');
+    Route::post('cooking/edit', 'Admin\CookingController@update');
+    Route::get('cooking/delete', 'Admin\CookingeController@delete');
+    
 });
 Auth::routes();
 
