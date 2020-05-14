@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Cooking;
+use App\CookingHistory;
+
+use Carbon\Carbon;
 
 class CookingController extends Controller
 {

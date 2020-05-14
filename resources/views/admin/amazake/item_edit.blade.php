@@ -20,7 +20,18 @@
                             <input type="text" class="form-control" name="title" value="{{ $item_form->title }}">
                         </div>
                     </div>
-                    
+                    <div class="form-group row">
+                        <label class="col-md-2" for="title">値段</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="nedan" value="{{ $item_form->nedan}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="title">メーカー・会社</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="kaisya" value="{{ $item_form->kaisya }}">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">感想</label>
                         <div class="col-md-10">
