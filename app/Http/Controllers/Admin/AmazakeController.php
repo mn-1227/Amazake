@@ -27,21 +27,21 @@ class AmazakeController extends Controller
       // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
       if (isset($form['image1'])) {
         $path1 = $request->file('image1')->store('public/image');
-        $amazake->image_path1 = basename($path);
+        $amazake->image_path1 = basename($path1);
       } else {
           $amazake->image_path1 = null;
       }
       
       if (isset($form['image2'])) {
         $path2 = $request->file('image2')->store('public/image');
-        $amazake->image_path2 = basename($path);
+        $amazake->image_path2 = basename($path2);
       } else {
-          $amazaek->image_path2 = null;
+          $amazaeke->image_path2 = null;
       }
       
       if (isset($form['image3'])) {
         $path3 = $request->file('image3')->store('public/image');
-        $amazake->image_path3 = basename($path);
+        $amazake->image_path3 = basename($path3);
       } else {
           $amazake->image_path3 = null;
       }
@@ -99,25 +99,25 @@ class AmazakeController extends Controller
         unset($amazake_form['image1']);
       } elseif (isset($request->remove)) {
         $amazake->image_path1 = null;
-        unset($news_form['remove']);
+        unset($amazake_form['remove']);
       }
       //image2
       if (isset($amazake_form['image2'])) {
         $path2 = $request->file('image2')->store('public/image');
-        $amazake->image_path = basename($path2);
+        $amazake->image_path2 = basename($path2);
         unset($amazake_form['image2']);
       } elseif (isset($request->remove)) {
-        $amazake->image_path = null;
-        unset($news_form['remove']);
+        $amazake->image_path2 = null;
+        unset($amazake_form['remove']);
       }
       //image3
       if (isset($amazake_form['image3'])) {
         $path3 = $request->file('image3')->store('public/image');
-        $amazake->image_path = basename($path3);
+        $amazake->image_path3 = basename($path3);
         unset($amazake_form['image3']);
       } elseif (isset($request->remove)) {
-        $amazake->image_path = null;
-        unset($news_form['remove']);
+        $amazake->image_path3 = null;
+        unset($amazake_form['remove']);
       }
       unset($amazake_form['_token']);
 

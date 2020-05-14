@@ -1,19 +1,19 @@
 @extends('layouts.admin')
-@section('title', '登録済みの甘酒記事一覧')
+@section('title', '登録済みの関連商品一覧')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>甘酒記事一覧</h2>
+            <h2>関連商品一覧</h2>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\TishikiController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <a href="{{ action('Admin\ItemController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
-                <form action="{{ action('Admin\TishikiController@index') }}" method="get">
+                <form action="{{ action('Admin\ItemController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">記事タイトル</label>
+                        <label class="col-md-2">関連商品名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
@@ -32,22 +32,22 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="30%">記事タイトル</th>
+                                <th width="30%">関連商品名</th>
                                 <th width="50%">感想</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $tishiki)
+                            @foreach($posts as $item)
                                 <tr>
-                                    <th>{{ $tishiki->id }}</th>
-                                    <td>{{ \Str::limit($tishiki->title, 100) }}</td>
-                                    <td>{{ \Str::limit($tishiki->body, 100)}}</td>
+                                    <th>{{ $item->id }}</th>
+                                    <td>{{ \Str::limit($item->title, 100) }}</td>
+                                    <td>{{ \Str::limit($item->body, 100)}}</td>
                                     <td>
                                         <div>
-                                            <a href="{{ action('Admin\TishikiController@edit', ['id' => $tishiki->id]) }}">編集</a>
+                                            <a href="{{ action('Admin\ItemController@edit', ['id' => $item->id]) }}">編集</a>
                                         </div>
                                         <div>
-                                            <a href="{{ action('Admin\TishikiController@delete', ['id' => $tishiki->id]) }}">削除</a>
+                                            <a href="{{ action('Admin\ItemController@delete', ['id' => $item->id]) }}">削除</a>
                                         </div>
                                     </td>
                                 </tr>

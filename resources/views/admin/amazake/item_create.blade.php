@@ -1,11 +1,11 @@
 @extends('layouts.admin')
-@section('title', '甘酒記事登録')
+@section('title', '関連商品登録')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>甘酒記事の登録</h2>
-                <form action="{{ action('Admin\TishikiController@create') }}" method="post" enctype="multipart/form-data">
+                <h2>関連商品の登録</h2>
+                <form action="{{ action('Admin\ItemController@create') }}" method="post" enctype="multipart/form-data">
                     
                     @if (count($errors) > 0)
                         <ul>
@@ -15,7 +15,7 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">記事タイトル</label>
+                        <label class="col-md-2">関連商品名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
@@ -30,6 +30,12 @@
                         <label class="col-md-2">画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">リンク</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="link" value="{{ old('link') }}">
                         </div>
                     </div>
                     {{ csrf_field() }}

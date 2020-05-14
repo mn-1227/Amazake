@@ -33,12 +33,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('tishiki/edit', 'Admin\TishikiController@update');
     Route::get('tishiki/delete', 'Admin\TishikiController@delete');
     //関連商品ページ
-    Route::get('items/create', 'Admin\ItemsController@add');
-    Route::post('items/create', 'Admin\ItemsController@create'); 
-    Route::get('items', 'Admin\ItemsController@index');
-    Route::get('items/edit', 'Admin\ItemsController@edit');
-    Route::post('items/edit', 'Admin\ItemsController@update');
-    Route::get('items/delete', 'Admin\ItemsController@delete');
+    Route::get('item/create', 'Admin\ItemController@add');
+    Route::post('item/create', 'Admin\ItemController@create'); 
+    Route::get('item', 'Admin\ItemController@index');
+    Route::get('item/edit', 'Admin\ItemController@edit');
+    Route::post('item/edit', 'Admin\ItemController@update');
+    Route::get('item/delete', 'Admin\ItemController@delete');
     //旅記録ページ
     Route::get('travel/create', 'Admin\TravelController@add');
     Route::post('travel/create', 'Admin\TravelController@create'); 
