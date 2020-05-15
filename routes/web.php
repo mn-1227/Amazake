@@ -56,11 +56,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     
 });
 
-Route::group(['prefix' => 'front'], function() {
+Route::group(['prefix' => 'search'], function() {
     //front検索ページ
-    Route::get('search/method', 'AmazakeController@method');
-    Route::get('search/sort', 'AmazakeController@index');
-    Route::get('search/daysort', 'AmazakeController@daySort');
+    Route::get('/', 'AmazakeController@method');
+    Route::get('sort', 'AmazakeController@index');
+    Route::get('daysort', 'AmazakeController@daySort');
+});   
+
+Route::group(['prefix' => 'kurashi'], function() {
+    //front検索ページ
+    Route::get('/', 'KurashiController@home');
+    Route::get('info', 'KurashiController@info');
 });   
 
 Auth::routes();

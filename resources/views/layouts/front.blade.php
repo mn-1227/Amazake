@@ -28,7 +28,7 @@
 
 <body >
   <nav class="navbar navbar-expand-lg bg-info navbar-light sticky-top">
-    <div class="container"> <a class="navbar-brand" href="#">
+    <div class="container"> <a class="navbar-brand" href="{{ action('KurashiController@home') }}">
         <i class="fa fa-sun-o" aria-hidden="true"></i>
         <b>甘酒くらし</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar17">
@@ -36,14 +36,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar17">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">甘酒検索</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ action('AmazakeController@method') }}">甘酒検索</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">効果効能</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">関連商品</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link" href="#">旅先記録</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#">甘酒料理</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">このサイトについて</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ action('KurashiController@info') }}">このサイトについて</a> </li>
         </ul> <a class="btn btn-outline-light navbar-btn ml-md-2">Contact us</a>
       </div>
     </div>

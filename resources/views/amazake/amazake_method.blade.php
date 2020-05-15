@@ -53,7 +53,7 @@
   <div class="py-5" style="">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-info" href="#">HOMEへ</a></div>
+        <div class="col-md-12"><a class="btn btn-info" href="{{ action('KurashiController@home') }}">HOMEへ</a></div>
       </div>
     </div>
   </div>
