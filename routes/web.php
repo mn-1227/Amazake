@@ -48,13 +48,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('travel/delete', 'Admin\TravelController@delete');
     //料理のページ
     Route::get('cooking/create', 'Admin\CookingController@add');
-    Route::post('cooking/create', 'Admin\CookingeController@create'); 
+    Route::post('cooking/create', 'Admin\CookingController@create'); 
     Route::get('cooking', 'Admin\CookingController@index');
     Route::get('cooking/edit', 'Admin\CookingController@edit');
     Route::post('cooking/edit', 'Admin\CookingController@update');
-    Route::get('cooking/delete', 'Admin\CookingeController@delete');
+    Route::get('cooking/delete', 'Admin\CookingController@delete');
     
 });
+
+Route::group(['prefix' => 'front'], function() {
+    //front検索ページ
+    Route::get('search/method', 'AmazakeController@method');
+    Route::get('search/sort', 'AmazakeController@index');
+    Route::get('search/daysort', 'AmazakeController@daySort');
+});   
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

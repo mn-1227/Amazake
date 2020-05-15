@@ -1,19 +1,19 @@
 @extends('layouts.admin')
-@section('title', '登録済みの旅先記録一覧')
+@section('title', '登録済みの料理レシピ一覧')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>旅先記録一覧</h2>
+            <h2>料理レシピ一覧</h2>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\TravelController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <a href="{{ action('Admin\CookingController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
-                <form action="{{ action('Admin\TravelController@index') }}" method="get">
+                <form action="{{ action('Admin\CookingController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">料理名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
@@ -32,24 +32,22 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="20%">場所</th>
-                                <th width="30%">感想</th>
+                                <th width="30%">料理名</th>
+                                <th width="40%">材料</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $travel)
+                            @foreach($posts as $cooking)
                                 <tr>
-                                    <th>{{ $travel->id }}</th>
-                                    <td>{{ \Str::limit($travel->title, 100) }}</td>
-                                    <td>{{ \Str::limit($travel->basyo, 50)}}</td>
-                                    <td>{{ \Str::limit($travel->body, 150) }}</td>
+                                    <th>{{ $cooking->id }}</th>
+                                    <td>{{ \Str::limit($cooking->title, 150) }}</td>
+                                    <td>{{ \Str::limit($cooking->zairyou, 150)}}</td>
                                     <td>
                                         <div>
-                                            <a href="{{ action('Admin\TravelController@edit', ['id' => $travel->id]) }}">編集</a>
+                                            <a href="{{ action('Admin\CookingController@edit', ['id' => $cooking->id]) }}">編集</a>
                                         </div>
                                         <div>
-                                            <a href="{{ action('Admin\TravelController@delete', ['id' => $travel->id]) }}">削除</a>
+                                            <a href="{{ action('Admin\CookingController@delete', ['id' => $cooking->id]) }}">削除</a>
                                         </div>
                                     </td>
                                 </tr>

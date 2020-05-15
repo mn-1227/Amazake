@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-@section('title', '旅先記録の編集')
+@section('title', '料理のレシピの編集')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>旅先記録編集</h2>
-                <form action="{{ action('Admin\TravelController@update') }}" method="post" enctype="multipart/form-data">
+                <h2>料理のレシピ編集</h2>
+                <form action="{{ action('Admin\CookingController@update') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -15,27 +15,27 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
+                        <label class="col-md-2" for="title">料理名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ $travel_form->title }}">
+                            <input type="text" class="form-control" name="title" value="{{ $cooking_form->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">場所</label>
+                        <label class="col-md-2" for="body">材料</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="basyo" value="{{ $travel_form->basyo}}">
+                            <textarea class="form-control" name="zairyou" rows="5">{{ $cooking_form->zairyou }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">住所</label>
+                        <label class="col-md-2" for="body">作り方</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="address" value="{{ $travel_form->address}}">
+                            <textarea class="form-control" name="body1" rows="5">{{ $cooking_form->body1 }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">感想</label>
+                        <label class="col-md-2" for="body">作り方</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="5">{{ $travel_form->body }}</textarea>
+                            <textarea class="form-control" name="body2" rows="5">{{ $cooking_form->body2 }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -43,7 +43,7 @@
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image1">
                             <div class="form-text text-info">
-                                設定中: {{ $travel_form->image_path1 }}
+                                設定中: {{ $cooking_form->image_path1 }}
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -57,7 +57,7 @@
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image2">
                             <div class="form-text text-info">
-                                設定中: {{ $travel_form->image_path2 }}
+                                設定中: {{ $cooking_form->image_path2 }}
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -71,7 +71,7 @@
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image3">
                             <div class="form-text text-info">
-                                設定中: {{ $travel_form->image_path3 }}
+                                設定中: {{ $cooking_form->image_path3 }}
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -81,14 +81,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">リンク</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="link" value="{{ $travel_form->link }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $travel_form->id }}">
+                            <input type="hidden" name="id" value="{{ $cooking_form->id }}">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>
@@ -98,9 +92,9 @@
                     <div class="col-md-4 mx-auto">
                         <h2>編集履歴</h2>
                         <ul class="list-group">
-                            @if ($travel_form->histories != NULL)
-                                @foreach ($travel_form->histories as $travelhistory)
-                                    <li class="list-group-item">{{ $travelhistory->edited_at }}</li>
+                            @if ($cooking_form->histories != NULL)
+                                @foreach ($cooking_form->histories as $cookinghistory)
+                                    <li class="list-group-item">{{ $cookinghistory->edited_at }}</li>
                                 @endforeach
                             @endif
                         </ul>

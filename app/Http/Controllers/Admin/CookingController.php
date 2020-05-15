@@ -13,36 +13,36 @@ class CookingController extends Controller
 {
      public function add()
   {
-      return view('admin.amazake.create');
+      return view('admin.amazake.cooking_create');
   }
      public function create(Request $request)
   {
        // Varidationを行う
-      $this->validate($request, Amazake::$rules);
+      $this->validate($request, Cooking::$rules);
       
-      $amazake = new Amazake;
+      $cooking = new Cooking;
       $form = $request->all();
       
       // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
       if (isset($form['image1'])) {
         $path1 = $request->file('image1')->store('public/image');
-        $amazake->image_path1 = basename($path);
+        $cooking->image_path1 = basename($path1);
       } else {
-          $amazake->image_path1 = null;
+          $cooking->image_path1 = null;
       }
       
       if (isset($form['image2'])) {
         $path2 = $request->file('image2')->store('public/image');
-        $amazake->image_path2 = basename($path);
+        $cooking->image_path2 = basename($path2);
       } else {
-          $amazaek->image_path2 = null;
+          $cooking->image_path2 = null;
       }
       
       if (isset($form['image3'])) {
         $path3 = $request->file('image3')->store('public/image');
-        $amazake->image_path3 = basename($path);
+        $cooking->image_path3 = basename($path3);
       } else {
-          $amazake->image_path3 = null;
+          $cooking->image_path3 = null;
       }
       
       // フォームから送信されてきた_tokenを削除する
@@ -53,91 +53,91 @@ class CookingController extends Controller
       unset($form['image3']);
       
       // データベースに保存する
-        $amazake->fill($form);
-        $amazake->save();
+        $cooking->fill($form);
+        $cooking->save();
       
-       //admin/amazake/createにリダイレクトする
-       return redirect('admin/amazake/create');
+       //admin/cooking/createにリダイレクトする
+       return redirect('admin/cooking/create');
   }  
   public function index(Request $request)
   {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
           // 検索されたら検索結果を取得する
-          $posts = Amazake::where('amazake', $cond_title)->get();
+          $posts = Cooking::where('title', $cond_title)->get();
       } else {
           // それ以外はすべてのニュースを取得する
-          $posts = Amazake::all();
+          $posts = Cooking::all();
       }
-      return view('admin.amazake.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.amazake.cooking_index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
   public function edit(Request $request)
   {
-      // amazake Modelからデータを取得する
-      $amazake = Amazake::find($request->id);
-      if (empty($amazake)) {
+      // Cooking Modelからデータを取得する
+      $cooking = Cooking::find($request->id);
+      if (empty($cooking)) {
         abort(404);    
       }
-      return view('admin.amazake.edit', ['amazake_form' => $amazake]);
+      return view('admin.amazake.cooking_edit', ['cooking_form' => $cooking]);
   }
 
 
   public function update(Request $request)
   {
       // Validationをかける
-      $this->validate($request, Amazake::$rules);
-      // Amazake Modelからデータを取得する
-      $amazake = Amazake::find($request->id);
+      $this->validate($request, Cooking::$rules);
+      // Cooking Modelからデータを取得する
+      $cooking = Cooking::find($request->id);
       // 送信されてきたフォームデータを格納する
-      $amazake_form = $request->all();
+      $cooking_form = $request->all();
       
       //image1
-      if (isset($amazake_form['image1'])) {
+      if (isset($cooking_form['image1'])) {
         $path1 = $request->file('image1')->store('public/image');
-        $amazake->image_path1 = basename($path1);
-        unset($amazake_form['image1']);
+        $cooking->image_path1 = basename($path1);
+        unset($cooking_form['image1']);
       } elseif (isset($request->remove)) {
-        $amazake->image_path1 = null;
-        unset($news_form['remove']);
+        $cooking->image_path1 = null;
+        unset($cooking_form['remove']);
       }
       //image2
-      if (isset($amazake_form['image2'])) {
+      if (isset($cooking_form['image2'])) {
         $path2 = $request->file('image2')->store('public/image');
-        $amazake->image_path = basename($path2);
-        unset($amazake_form['image2']);
+        $cooking->image_path2 = basename($path2);
+        unset($cooking_form['image2']);
       } elseif (isset($request->remove)) {
-        $amazake->image_path = null;
-        unset($news_form['remove']);
+        $cooking->image_path2 = null;
+        unset($cooking_form['remove']);
       }
       //image3
-      if (isset($amazake_form['image3'])) {
+      if (isset($cooking_form['image3'])) {
         $path3 = $request->file('image3')->store('public/image');
-        $amazake->image_path = basename($path3);
-        unset($amazake_form['image3']);
+        $cooking->image_path3 = basename($path3);
+        unset($cooking_form['image3']);
       } elseif (isset($request->remove)) {
-        $amazake->image_path = null;
-        unset($news_form['remove']);
+        $cooking->image_path3 = null;
+        unset($cooking_form['remove']);
       }
-      unset($amazake_form['_token']);
+      unset($cooking_form['_token']);
 
       // 該当するデータを上書きして保存する
-      $amazake->fill($amazake_form)->save();
+      $cooking->fill($cooking_form)->save();
       
-        $amazakehistory = new AmazakeHistory;
-        $amazakehistory->amazake_id = $amazake->id;
-        $amazakehistory->edited_at = Carbon::now();
-        $amazakehistory->save();
+        $cookinghistory = new CookingHistory;
+        $cookinghistory->cooking_id = $cooking->id;
+        $cookinghistory->edited_at = Carbon::now();
+        $cookinghistory->save();
         
-      return redirect('admin/amazake');
+      return redirect('admin/cooking');
       
       
   }
   public function delete(Request $request)
   {
       // 該当するNews Modelを取得
-      $amazake = Amazake::find($request->id);
+      $cooking = Cooking::find($request->id);
       // 削除する
-      $amazake->delete();
-      return redirect('admin/amazake/');
+      $cooking->delete();
+      return redirect('admin/cooking/');
   }  
 }

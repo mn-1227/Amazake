@@ -1,11 +1,11 @@
 @extends('layouts.admin')
-@section('title', '旅先記録登録')
+@section('title', '料理のレシピ登録')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>旅先記録の登録</h2>
-                <form action="{{ action('Admin\TravelController@create') }}" method="post" enctype="multipart/form-data">
+                <h2>料理のレシピの登録</h2>
+                <form action="{{ action('Admin\CookingController@create') }}" method="post" enctype="multipart/form-data">
                     
                     @if (count($errors) > 0)
                         <ul>
@@ -15,29 +15,27 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">料理名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">場所</label>
+                        <label class="col-md-2">材料</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="basyo" value="{{ old('basyo') }}">
+                            <textarea class="form-control" name="zairyou" rows="5">{{ old('zairyou') }}</textarea>
                         </div>
                     </div>
-                    
                     <div class="form-group row">
-                        <label class="col-md-2">住所</label>
+                        <label class="col-md-2">作り方</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="address" value="{{ old('address') }}">
+                            <textarea class="form-control" name="body1" rows="5">{{ old('body1') }}</textarea>
                         </div>
                     </div>
-                    
                     <div class="form-group row">
-                        <label class="col-md-2">感想</label>
+                        <label class="col-md-2">作り方</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="5">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body2" rows="5">{{ old('body2') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -56,12 +54,6 @@
                         <label class="col-md-2">画像3</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">リンク</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="link" value="{{ old('link') }}">
                         </div>
                     </div>
                     {{ csrf_field() }}
