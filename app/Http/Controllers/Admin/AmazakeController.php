@@ -36,7 +36,7 @@ class AmazakeController extends Controller
         $path2 = $request->file('image2')->store('public/image');
         $amazake->image_path2 = basename($path2);
       } else {
-          $amazaeke->image_path2 = null;
+          $amazake->image_path2 = null;
       }
       
       if (isset($form['image3'])) {

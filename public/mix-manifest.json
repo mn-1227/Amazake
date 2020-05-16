@@ -1,4 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
-    "/js/jquery.rwdImageMaps.js": "/js/jquery.rwdImageMaps.js"
+    "/css/admin.css": "/css/admin.css",
+    "/css/app.css": "/css/app.css",
+    "/js/jquery.rwdImageMaps.js": "/js/jquery.rwdImageMaps.js",
+    "/css/front.css": "/css/front.css"
 }

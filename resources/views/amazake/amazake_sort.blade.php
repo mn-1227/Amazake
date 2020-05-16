@@ -23,7 +23,7 @@
    <div class="container">
      <div class="row">
             <div class="col-md-12">
-                <form action="{{ action('Admin\AmazakeController@index') }}" method="get">
+                <form action="{{ action('AmazakeController@index') }}" method="get">
                     <div class="form-group row">
                         <p class="lead">甘酒の名前</p>
                         <div class="col-md-5">
@@ -43,16 +43,17 @@
     <div class="container">
       <div class="row">
             <div class="list-news col-md-12 mx-auto">
+              <form action="{{ action('AmazakeController@index') }}" method="get">
                 <div class="row">
                     <table class="table table-info">
                         <thead>
                             <tr>
-                                <th width="20%"><a class="btn btn-ligft" href="{{ action('AmazakeController@daySort' }}">更新日</a></th>
-                                <th width="20%"><a class="btn btn-ligft" href="{{ action('AmazakeController@nameSort' }}">甘酒名</a></th>
-                                <th width="15%"><a class="btn btn-ligft" href="{{ action('AmazakeController@amasaSort' }}">甘さ</a></th>
-                                <th width="15%"><a class="btn btn-ligft" href="{{ action('AmazakeController@komekanSort' }}">米麹の粒感</a></th>
-                                <th width="15%"><a class="btn btn-ligft" href="{{ action('AmazakeController@kuseSort' }}">クセ</a></th>
-                                <th width="15%"><a class="btn btn-ligft" href="{{ action('AmazakeController@nedanSort' }}">値段</a></th>
+                                <th width="20%"><input class="btn btn-ligft" type="submit" name="updated_at" value="更新日"></th>
+                                <th width="20%"><input class="btn btn-ligft" type="submit" name="amazake" value="甘酒名"></th>
+                                <th width="15%"><input class="btn btn-ligft" type="submit" name="amasa" value="甘さ"></th>
+                                <th width="15%"><input class="btn btn-ligft" type="submit" name="komekann" value="米麹の粒感"></th>
+                                <th width="15%"><input class="btn btn-ligft" type="submit" name="kuse" value="クセ"></th>
+                                <th width="15%"><input class="btn btn-ligft" type="submit" name="nedan" value="値段"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,6 +70,7 @@
                         </tbody>
                     </table>
                 </div>
+              </form>
             </div>
       </div>
     </div>
