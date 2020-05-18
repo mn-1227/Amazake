@@ -23,7 +23,8 @@
 
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/rate.css') }}" rel="stylesheet">
 </head>
 
 <body >

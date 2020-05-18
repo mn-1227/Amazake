@@ -60,11 +60,10 @@ Route::group(['prefix' => 'search'], function() {
     //front検索ページ
     Route::get('/', 'AmazakeController@method');
     Route::get('sort', 'AmazakeController@index');
-    Route::get('daysort', 'AmazakeController@daySort');
 });   
 
 Route::group(['prefix' => 'kurashi'], function() {
-    //front検索ページ
+    //home遷移ページ
     Route::get('/', 'KurashiController@home');
     Route::get('info', 'KurashiController@info');
 });   

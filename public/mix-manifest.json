@@ -1,7 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/admin.css": "/css/admin.css",
+    "/css/front.css": "/css/front.css",
+    "/css/rate.css": "/css/rate.css",
     "/css/app.css": "/css/app.css",
-    "/js/jquery.rwdImageMaps.js": "/js/jquery.rwdImageMaps.js",
-    "/css/front.css": "/css/front.css"
+    "/js/jquery.rwdImageMaps.js": "/js/jquery.rwdImageMaps.js"
 }

@@ -44,7 +44,7 @@
       <div class="row">
             <div class="list-news col-md-12 mx-auto">
               <form action="{{ action('AmazakeController@index') }}" method="get">
-                <div class="row">
+                <div class="table-responsive">
                     <table class="table table-info">
                         <thead>
                             <tr>
@@ -61,12 +61,19 @@
                                 <tr>
                                     <td>{{ $amazake->updated_at->format('Y年m月d日') }}</td>
                                     <td>{{ \Str::limit($amazake->amazake, 100) }}</td>
-                                    <td>{{ $amazake->amasa}}</td>
-                                    <td>{{ $amazake->komekann}}</td>
-                                    <td>{{$amazake->kuse}}</td>
-                                    <td>{{$amazake->nedan}}</td>
+                                    
+                                      <td>{{ $amazake->amasa}}</td>
+                                      <td>{{ $amazake->komekann}}</td>
+                                      <td>{{$amazake->kuse}}</td>
+                                      <td>{{$amazake->nedan}}</td>
+                                      <td>
+                                        <div>
+                                            <a href="{{ action('AmazakeController@open', ['id' => $amazake->id]) }}">見てみる</a>
+                                        </div>
+                                      </td>
                                 </tr>
                             @endforeach
+                            {{ $posts->links() }}
                         </tbody>
                     </table>
                 </div>
@@ -75,22 +82,7 @@
       </div>
     </div>
   </div>
-  <div class="py-5" style="">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="pagination">
-            <li class="page-item"> <a class="page-link" href="#"> <span>«</span></a> </li>
-            <li class="page-item active"> <a class="page-link" href="#">1</a> </li>
-            <li class="page-item"> <a class="page-link" href="#">2</a> </li>
-            <li class="page-item"> <a class="page-link" href="#">3</a> </li>
-            <li class="page-item"> <a class="page-link" href="#">4</a> </li>
-            <li class="page-item"> <a class="page-link" href="#"> <span>»</span></a> </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  
   <div class="py-6" style="" >
     <div class="container">
       <div class="row">
