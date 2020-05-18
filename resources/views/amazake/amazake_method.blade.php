@@ -35,7 +35,7 @@
           <div class="card" style=""> <img class="card-img-top border border-info" src="{{ secure_asset('image/map-japan-deform-prefecture-01.png') }}" alt="Card image cap" style="" height="300">
             <div class="card-body">
               <h4 class="card-title">場所から探す</h4>
-              <p class="card-text">製造している場所から甘酒を探してみましょう。地図をクリックすると、その場所で製造された甘酒が表示されます。</p> <a href="{{ action('AmazakeController@index') }}" class="btn btn-primary">場所から探すへ</a>
+              <p class="card-text">製造している場所から甘酒を探してみましょう。地図をクリックすると、その場所で製造された甘酒が表示されます。</p> <a href="{{ action('AmazakeController@japan') }}" class="btn btn-primary">場所から探すへ</a>
             </div>
           </div>
         </div>

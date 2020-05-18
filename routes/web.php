@@ -60,6 +60,12 @@ Route::group(['prefix' => 'search'], function() {
     //front検索ページ
     Route::get('/', 'AmazakeController@method');
     Route::get('sort', 'AmazakeController@index');
+    Route::get('introduction', 'AmazakeController@open');
+    
+});   
+
+ Route::get('search/japan/{name?}', 'AmazakeController@japan', function($name = null) {
+    return $name;
 });   
 
 Route::group(['prefix' => 'kurashi'], function() {

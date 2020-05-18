@@ -66,9 +66,10 @@
                                       <td>{{ $amazake->komekann}}</td>
                                       <td>{{$amazake->kuse}}</td>
                                       <td>{{$amazake->nedan}}</td>
+          　　　</form>
                                       <td>
                                         <div>
-                                            <a href="{{ action('AmazakeController@open', ['id' => $amazake->id]) }}">見てみる</a>
+                                            <a href="{{ action('AmazakeController@open',['id' => $amazake->id]) }}">見てみる</a>
                                         </div>
                                       </td>
                                 </tr>
@@ -77,7 +78,7 @@
                         </tbody>
                     </table>
                 </div>
-              </form>
+              
             </div>
       </div>
     </div>
@@ -86,7 +87,7 @@
   <div class="py-6" style="" >
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-info" href="#">HOMEへ</a></div>
+        <div class="col-md-12"><a class="btn btn-info" href="{{ action('KurashiController@home') }}">HOMEへ</a></div>
       </div>
     </div>
   </div>

@@ -41,7 +41,7 @@ class AmazakeController extends Controller
       
       if (isset($_GET['updated_at'])) {
           $sort_conditions = "updated_at";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();;
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
       }elseif(isset($_GET['amazake'])) {
           $sort_conditions = "amazake";
           $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
@@ -69,4 +69,28 @@ class AmazakeController extends Controller
       return view('amazake.amazake_sort', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
   
+  public function open(Request $request)
+  {
+      // amazake Modelからデータを取得する
+      $amazake_int = Amazake::find($request->id);
+      if (empty($amazake_int)) {
+        abort(404);    
+      }
+      
+      return view('amazake.amazake_introduction',compact('amazake_int'));
+  }
+   public function japan($name=null)
+  {
+      $posts = Amazake::orderBy('amazake', 'desc')->paginate(5);
+      if  ($name == 1) {
+        $posts = Amazake::where('todoufuken', 'like', '%北海道%')->orderBy('amazake', 'desc')->paginate(5);
+      }elseif($name == 2){
+        $posts = Amazake::where('todoufuken', 'like', '%青森県%')->orderBy('amazake', 'desc')->paginate(5);
+      }
+     // $posts =NULL;
+      //\Log::debug($posts);
+      // \Log::debug($posts."あ");
+      return view('amazake.amazake_japan',['posts' => $posts]);
+  }
 }
+//Amazake::orderBy('amazake', 'desc')->paginate(5)
