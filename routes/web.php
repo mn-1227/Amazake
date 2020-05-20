@@ -77,18 +77,32 @@ Route::group(['prefix' => 'kurashi'], function() {
 });   
 
 Route::group(['prefix' => 'tishiki'], function() {
-    //front検索ページ
+    //front甘酒検索ページ
     Route::get('/', 'TishikiController@index');
     Route::get('introduction', 'TishikiController@open');
     
 });   
 
 Route::group(['prefix' => 'item'], function() {
-    //front検索ページ
+    //front関連商品ページ
     Route::get('/', 'ItemController@index');
     Route::get('introduction', 'ItemController@open');
     
 });   
+
+Route::group(['prefix' => 'travel'], function() {
+    //front旅記録ページ
+    Route::get('/', 'TravelController@index');
+    Route::get('introduction', 'TravelController@open');
+    
+});  
+
+Route::group(['prefix' => 'cooking'], function() {
+    //front旅記録ページ
+    Route::get('/', 'CookingController@index');
+    Route::get('introduction', 'CookingController@open');
+    
+});  
 
 Auth::routes();
 

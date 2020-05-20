@@ -39,12 +39,12 @@
       <div class="collapse navbar-collapse" id="navbar17">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"> <a class="nav-link" href="{{ action('AmazakeController@method') }}">甘酒検索</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">効果効能</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">関連商品</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ action('TishikiController@index') }}">効果効能</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ action('ItemController@index') }}">関連商品</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">旅先記録</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">甘酒料理</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ action('TravelController@index') }}">旅先記録</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ action('TravelController@index') }}">甘酒料理</a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ action('KurashiController@info') }}">このサイトについて</a> </li>
         </ul> <a class="btn btn-outline-light navbar-btn ml-md-2">Contact us</a>
       </div>

@@ -39,14 +39,23 @@
   <div class="py-2">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">製造会社・メーカー名: {{ $item_int->kaisya }}</li>
-            <li class="list-group-item">link: {{ $item_int->link }}</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
           <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body" >
+              <h5 class="card-title">情報</h5>
+              <h6 class="card-subtitle my-2 text-muted">製造会社・メーカー:{{ $item_int->kaisya }}</h6>
+              <a href="#" class="card-link">リンク<link rel="stylesheet" href="{{ $item_int->link }}" type="text/css" /></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
