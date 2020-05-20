@@ -46,7 +46,7 @@
           <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">こんな商品ありました</h4>
-              <p class="card-text">飲むだけじゃないんです。<br>見つけた甘酒関連の商品を紹介したいと思います。</p> <a href="#" class="btn btn-primary">関連商品へ</a>
+              <p class="card-text">飲むだけじゃないんです。<br>見つけた甘酒関連の商品を紹介したいと思います。</p> <a href="{{ action('ItemController@index') }}" class="btn btn-primary">関連商品へ</a>
             </div>
           </div>
         </div>

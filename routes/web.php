@@ -83,6 +83,13 @@ Route::group(['prefix' => 'tishiki'], function() {
     
 });   
 
+Route::group(['prefix' => 'item'], function() {
+    //front検索ページ
+    Route::get('/', 'ItemController@index');
+    Route::get('introduction', 'ItemController@open');
+    
+});   
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -59,6 +59,7 @@
             <li class="list-group-item">円／(ml or g): {{ $amazake_int->en_ml }}</li>
             <li class="list-group-item">製造会社・メーカー名: {{ $amazake_int->kaisya }}</li>
             <li class="list-group-item">産地: {{ $amazake_int->address }}</li>
+            <li class="list-group-item">link: {{ $amazake_int->link }}</li>
           </ul>
         </div>
         <div class="col-md-6">
