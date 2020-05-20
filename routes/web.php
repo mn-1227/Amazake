@@ -59,12 +59,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Route::group(['prefix' => 'search'], function() {
     //front検索ページ
     Route::get('/', 'AmazakeController@method');
-    Route::get('sort', 'AmazakeController@index');
+   // Route::get('sort', 'AmazakeController@index');
     Route::get('introduction', 'AmazakeController@open');
     Route::get('undameshi', 'AmazakeController@undameshi');
     Route::get('undameshi/today', 'AmazakeController@today');
     
-});   
+});  
+
+Route::get('search/sort/{name?}', 'AmazakeController@index', function($name = null) {
+    return $name;
+});
 
  Route::get('search/japan/{name?}', 'AmazakeController@japan', function($name = null) {
     return $name;

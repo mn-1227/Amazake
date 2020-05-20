@@ -1,6 +1,9 @@
 @extends('layouts.front')
 @section('title', '甘酒検索方法')
 @section('content')
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <div class="py-1">
     <div class="container">
       <div class="row">
@@ -39,33 +42,81 @@
     </div>
    </div>
   </div>
-  <div class="py-4">
+  <div class="py-2">
     <div class="container">
       <div class="row">
             <div class="list-news col-md-12 mx-auto">
               <form action="{{ action('AmazakeController@index') }}" method="get">
                 <div class="table-responsive">
-                    <table class="table table-info">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th width="20%"><input class="btn btn-ligft" type="submit" name="updated_at" value="更新日"></th>
-                                <th width="20%"><input class="btn btn-ligft" type="submit" name="amazake" value="甘酒名"></th>
-                                <th width="15%"><input class="btn btn-ligft" type="submit" name="amasa" value="甘さ"></th>
-                                <th width="15%"><input class="btn btn-ligft" type="submit" name="komekann" value="米麹の粒感"></th>
-                                <th width="15%"><input class="btn btn-ligft" type="submit" name="kuse" value="クセ"></th>
-                                <th width="15%"><input class="btn btn-ligft" type="submit" name="nedan" value="値段"></th>
+                                <th class="text-center">
+                                  <div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">更新日</button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/1')}}">新しい順</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/2')}}">古い順</a>
+                                    </div>
+                                 </div>
+                                </th>
+                                <th class="text-center">
+                                　<div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">甘酒名 </button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/3')}}">名前順</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/4')}}">名前逆順</a>
+                                    </div>
+                                 　</div>
+                                </th>
+                                <th class="text-center">
+                                　<div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">甘さ</button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/5')}}">大きい</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/6')}}">小さい</a>
+                                    </div>
+                                 　</div>
+                                </th>
+                                <th class="text-center">
+                                　<div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">米麹の粒感</button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/7')}}">大きい</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/8')}}">小さい</a>
+                                    </div>
+                                 　</div>
+                                </th>
+                                <th class="text-center">
+                                　<div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">クセ</button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/9')}}">大きい</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/10')}}">小さい</a>
+                                    </div>
+                                 　</div>
+                                </th>
+                                <th class="text-center">
+                                　<div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">値段</button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/11')}}">大きい</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/12')}}">小さい</a>
+                                    </div>
+                                 　</div>
+                                </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $amazake)
                                 <tr>
-                                    <td>{{ $amazake->updated_at->format('Y年m月d日') }}</td>
-                                    <td>{{ \Str::limit($amazake->amazake, 100) }}</td>
-                                    
-                                      <td>{{ $amazake->amasa}}</td>
-                                      <td>{{ $amazake->komekann}}</td>
-                                      <td>{{$amazake->kuse}}</td>
-                                      <td>{{$amazake->nedan}}</td>
+                                    <td class="text-center">{{ $amazake->updated_at->format('Y年m月d日') }}</td>
+                                    <td class="text-center">{{ \Str::limit($amazake->amazake, 100) }}</td>
+                                    <td class="text-center">{{ $amazake->amasa}}</td>
+                                    <td class="text-center">{{ $amazake->komekann}}</td>
+                                    <td class="text-center">{{$amazake->kuse}}</td>
+                                    <td class="text-center">{{$amazake->nedan}}</td>
           　　　</form>
                                       <td>
                                         <div>

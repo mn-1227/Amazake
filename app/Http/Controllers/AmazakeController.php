@@ -31,43 +31,96 @@ class AmazakeController extends Controller
       }
       */
       //コード例
-      public function index(Request $request)
+  //     public function index(Request $request)
+  // {
+  //     $cond_title = $request->cond_title;
+      
+  //     // 並び替え条件取得(defaultは更新日)
+  //     $sort_conditions = "updated_at";
+      
+      
+  //     if (isset($_GET['updated_at'])) {
+  //         $sort_conditions = "updated_at";
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+  //     }elseif(isset($_GET['amazake'])) {
+  //         $sort_conditions = "amazake";
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+  //     }elseif(isset($_GET['amasa'])){
+  //         $sort_conditions = "amasa";
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+  //     }elseif(isset($_GET['kuse'])){
+  //         $sort_conditions = "kuse";
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+  //     }elseif(isset($_GET['nedan'])){
+  //         $sort_conditions = "nedan";
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+  //     }elseif(isset($_GET['komekann'])){
+  //         $sort_conditions = "komekann";
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+  //     }
+      
+  //     if ($cond_title != '') {
+  //         // 検索されたら検索結果を取得する
+  //         $posts = Amazake::where('amazake', $cond_title)->orderBy($sort_conditions, 'desc')->paginate(10);
+  //     } else {
+  //         // それ以外はすべてのニュースを取得する
+  //         $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+  //     }
+  //     return view('amazake.amazake_sort', ['posts' => $posts, 'cond_title' => $cond_title]);
+  // }
+  
+   public function index(Request $request,$name=null)
   {
       $cond_title = $request->cond_title;
       
       // 並び替え条件取得(defaultは更新日)
       $sort_conditions = "updated_at";
+      $posts = Amazake::orderBy('updated_at', 'desc')->paginate(2);
       
-      
-      if (isset($_GET['updated_at'])) {
+      if ($name == 1) {
           $sort_conditions = "updated_at";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
-      }elseif(isset($_GET['amazake'])) {
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+      }elseif($name == 2) {
+          $sort_conditions = "updated_at";
+          $posts = Amazake::orderBy($sort_conditions, 'asc')->paginate(2);
+      }elseif($name == 3) {
           $sort_conditions = "amazake";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
-      }elseif(isset($_GET['amasa'])){
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+      }elseif($name == 4) {
+          $sort_conditions = "amazake";
+          $posts = Amazake::orderBy($sort_conditions, 'asc')->paginate(2);
+      }elseif($name == 5){
           $sort_conditions = "amasa";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
-      }elseif(isset($_GET['kuse'])){
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+      }elseif($name == 6){
+          $sort_conditions = "amasa";
+          $posts = Amazake::orderBy($sort_conditions, 'asc')->paginate(2);
+      }elseif($name == 7){
           $sort_conditions = "kuse";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
-      }elseif(isset($_GET['nedan'])){
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+      }elseif($name == 8){
+          $sort_conditions = "kuse";
+          $posts = Amazake::orderBy($sort_conditions, 'asc')->paginate(2);
+      }elseif($name == 9){
           $sort_conditions = "nedan";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
-      }elseif(isset($_GET['komekann'])){
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+      }elseif($name == 10){
+          $sort_conditions = "nedan";
+          $posts = Amazake::orderBy($sort_conditions, 'asc')->paginate(2);
+      }elseif($name == 11){
           $sort_conditions = "komekann";
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->get();
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+      }elseif($name == 12){
+          $sort_conditions = "komekann";
+          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
       }
-      
       if ($cond_title != '') {
           // 検索されたら検索結果を取得する
-          $posts = Amazake::where('amazake', $cond_title)->orderBy($sort_conditions, 'desc')->paginate(10);
-      } else {
-          // それ以外はすべてのニュースを取得する
-          $posts = Amazake::orderBy($sort_conditions, 'desc')->paginate(2);
+          $posts = Amazake::where('amazake', $cond_title)->orderBy($sort_conditions, 'desc')->paginate(2);
       }
       return view('amazake.amazake_sort', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
+  
   
   public function open(Request $request)
   {
