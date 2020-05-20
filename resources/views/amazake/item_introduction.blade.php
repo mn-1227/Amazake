@@ -51,7 +51,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-body" >
-              <h5 class="card-title">情報</h5>
+              <h5 class="card-title">商品情報</h5>
               <h6 class="card-subtitle my-2 text-muted">製造会社・メーカー:{{ $item_int->kaisya }}</h6>
               <a href="#" class="card-link">リンク<link rel="stylesheet" href="{{ $item_int->link }}" type="text/css" /></a>
             </div>
