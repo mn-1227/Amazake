@@ -76,7 +76,7 @@ class AmazakeController extends Controller
       if (empty($amazake_int)) {
         abort(404);    
       }
-      
+      // \Log::debug($amazake_int->image_path1);
       return view('amazake.amazake_introduction',compact('amazake_int'));
   }
    public function japan($name=null)
@@ -187,5 +187,16 @@ class AmazakeController extends Controller
       // \Log::debug($posts."あ");
       return view('amazake.amazake_japan',['posts' => $posts]);
   }
+  public function undameshi()
+  {
+      return view('amazake.amazake_undameshi');
+  }
+  public function today(Request $request)
+  {
+      // amazake Modelからデータを取得する
+      $amazake_int = Amazake::inRandomOrder()->first();
+      // \Log::debug($amazake_int);
+      return view('amazake.amazake_today',compact('amazake_int'));
+  }
 }
-//Amazake::orderBy('amazake', 'desc')->paginate(5)
+//Amazake::orderBy('amazake', 'desc')->paginate(5);

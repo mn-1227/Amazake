@@ -38,7 +38,7 @@
           <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">甘酒の効果って？</h4>
-              <p class="card-text">なんとなく身体にいいイメージがあるけど、実際どんな効果があるの？甘酒を飲むことでのメリットや注意をまとめました。</p> <a href="#" class="btn btn-primary">効果・効能へ</a>
+              <p class="card-text">なんとなく身体にいいイメージがあるけど、実際どんな効果があるの？甘酒を飲むことでのメリットや注意をまとめました。</p> <a href="{{ action('TishikiController@index') }}" class="btn btn-primary">効果・効能へ</a>
             </div>
           </div>
         </div>

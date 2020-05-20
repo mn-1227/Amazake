@@ -43,7 +43,7 @@
           <div class="card"> <img class="card-img-top" src="{{ secure_asset('image/甘酒と麹と米_s.jpg') }}" alt="Card image cap" height="300">
             <div class="card-body">
               <h4 class="card-title">本日の甘酒</h4>
-              <p class="card-text">「たくさんあって選ぶのが難しい！」そんなあなたは、こちらで甘酒をランダムに紹介します。</p> <a href="#" class="btn btn-primary">本日の甘酒へ</a>
+              <p class="card-text">「たくさんあって選ぶのが難しい！」そんなあなたは、こちらで甘酒をランダムに紹介します。</p> <a href="{{ action('AmazakeController@undameshi') }}" class="btn btn-primary">本日の甘酒へ</a>
             </div>
           </div>
         </div>

@@ -61,6 +61,8 @@ Route::group(['prefix' => 'search'], function() {
     Route::get('/', 'AmazakeController@method');
     Route::get('sort', 'AmazakeController@index');
     Route::get('introduction', 'AmazakeController@open');
+    Route::get('undameshi', 'AmazakeController@undameshi');
+    Route::get('undameshi/today', 'AmazakeController@today');
     
 });   
 
@@ -72,6 +74,13 @@ Route::group(['prefix' => 'kurashi'], function() {
     //home遷移ページ
     Route::get('/', 'KurashiController@home');
     Route::get('info', 'KurashiController@info');
+});   
+
+Route::group(['prefix' => 'tishiki'], function() {
+    //front検索ページ
+    Route::get('/', 'TishikiController@index');
+    Route::get('introduction', 'TishikiController@open');
+    
 });   
 
 Auth::routes();

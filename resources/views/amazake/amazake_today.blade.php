@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('title', '甘酒紹介')
+@section('title', '本日の甘酒紹介')
 @section('content')
 <div class="py-1">
     <div class="container">
@@ -32,11 +32,11 @@
         <div class="col-md-12">
           <div class="carousel slide" data-ride="carousel" id="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active"> <img class="d-block img-fluid w-100" style="" src="{{ asset('storage/image/'.$amazake_int->image_path1) }}">
+              <div class="carousel-item active"> <img class="d-block img-fluid w-100" style="" src="https://static.pingendo.com/cover-bubble-dark.svg">
               </div>
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="{{ asset('storage/image/'.$amazake_int->image_path2) }}" style="">
+              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-bubble-light.svg" style="">
               </div>
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="{{ asset('storage/image/'.$amazake_int->image_path3) }}">
+              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-moon.svg">
                 <div class="carousel-caption">
                   <h5 class="m-0">Carousel</h5>
                   <p>with controls</p>
@@ -70,7 +70,7 @@
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-info" href="{{ action('AmazakeController@index') }}">甘酒一覧へ</a></div>
+        <div class="col-md-12"><a class="btn btn-info" href="{{ action('AmazakeController@undameshi') }}">もう一回選んでもらう</a></div>
       </div>
     </div>
   </div>
