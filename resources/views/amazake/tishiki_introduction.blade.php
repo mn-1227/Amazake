@@ -33,7 +33,7 @@
   <div class="py-1" style="">
     <div class="container">
       <div class="row">
-        <div class="col-md-6" style=""><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg" style=""></div>
+        <div class="col-md-6" style=""><img class="img-fluid d-block" src="{{ asset('storage/image/'.$tishiki_int->image_path) }}" style=""></div>
         <div class="col-md-6">
           <p class="lead">{{ $tishiki_int->body }}</p>
         </div>

@@ -26,8 +26,10 @@ class TishikiController extends Controller
       
       // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
       if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $tishiki->image_path = basename($path);
+        //$path = $request->file('image')->store('public/image');
+        //$tishiki->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $tishiki->image_path = Storage::disk('s3')->url($path);
       } else {
           $tishiki->image_path = null;
       }
@@ -78,8 +80,10 @@ class TishikiController extends Controller
       
       //image
       if (isset($amazake_form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $tishiki->image_path = basename($path);
+        //$path = $request->file('image')->store('public/image');
+        //$tishiki->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $tishiki->image_path = Storage::disk('s3')->url($path);
         unset($tishiki_form['image']);
       } elseif (isset($request->remove)) {
         $tishiki->image_path = null;

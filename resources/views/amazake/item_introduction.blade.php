@@ -30,7 +30,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="card"> <img class="card-img" src="https://static.pingendo.com/cover-bubble-light.svg" alt="Card image" >
+          <div class="card"> <img class="card-img" src="{{ asset('storage/image/'.$item_int->image_path) }}" alt="Card image" >
           </div>
         </div>
       </div>

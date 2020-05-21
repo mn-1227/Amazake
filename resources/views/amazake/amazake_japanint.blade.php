@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('title', '本日の甘酒紹介')
+@section('title', '甘酒紹介')
 @section('content')
 <div class="py-1">
     <div class="container">
@@ -74,6 +74,7 @@
             <li class="list-group-item">円／(ml or g): {{ $amazake_int->en_ml }}</li>
             <li class="list-group-item">製造会社・メーカー名: {{ $amazake_int->kaisya }}</li>
             <li class="list-group-item">産地: {{ $amazake_int->address }}</li>
+            <li class="list-group-item">link: {{ $amazake_int->link }}</li>
           </ul>
         </div>
         <div class="col-md-6">
@@ -85,7 +86,7 @@
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-info" href="{{ action('AmazakeController@undameshi') }}">もう一回選んでもらう</a></div>
+        <div class="col-md-12"><a class="btn btn-info" href="{{ action('AmazakeController@japan') }}">場所から選ぶへ</a></div>
       </div>
     </div>
   </div>

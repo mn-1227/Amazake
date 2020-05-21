@@ -53,9 +53,24 @@
       <div class="row">
         <div class="col-md-6">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">甘さ: {{ $amazake_int->amasa }}</li>
-            <li class="list-group-item">米麹の粒感: {{ $amazake_int->komekann }}</li>
-            <li class="list-group-item">クセ: {{ $amazake_int->kuse }}</li>
+            <li class="list-group-item">甘さ: 
+            <div class="star-rating">
+            <div class="star-rating-front" style="width: {{ $amazake_int->amasa*20}}%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+            </div>
+            </li>
+            <li class="list-group-item">米麹の粒感: 
+            <div class="star-rating">
+            <div class="star-rating-front" style="width: {{ $amazake_int->komekann*20}}%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+            </div>
+            </li>
+            <li class="list-group-item">クセ: 
+            <div class="star-rating">
+            <div class="star-rating-front" style="width: {{ $amazake_int->kuse*20}}%">★★★★★</div>
+            <div class="star-rating-back">★★★★★</div>
+            </div>
+            </li>
             <li class="list-group-item">円／(ml or g): {{ $amazake_int->en_ml }}</li>
             <li class="list-group-item">製造会社・メーカー名: {{ $amazake_int->kaisya }}</li>
             <li class="list-group-item">産地: {{ $amazake_int->address }}</li>

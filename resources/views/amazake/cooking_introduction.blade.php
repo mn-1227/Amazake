@@ -22,7 +22,7 @@
   <div class="py-1">
     <div class="container">
       <div class="row">
-        <div class="col-md-6"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
+        <div class="col-md-6"><img class="img-fluid d-block" src="{{ asset('storage/image/'.$cooking_int->image_path1) }}"></div>
         <div class="col-md-6">
           <h3 class="">材料</h3>
           <p class="lead">{{ $cooking_int->zairyou }}</p>
@@ -37,14 +37,14 @@
           <h3 class="">作り方</h3>
           <p class="lead">{{ $cooking_int->body1 }}</p>
         </div>
-        <div class="col-md-6"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
+        <div class="col-md-6"><img class="img-fluid d-block" src="{{ asset('storage/image/'.$cooking_int->image_path2) }}"></div>
       </div>
     </div>
   </div>
   <div class="py-1">
     <div class="container">
       <div class="row">
-        <div class="col-md-6"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
+        <div class="col-md-6"><img class="img-fluid d-block" src="{{ asset('storage/image/'.$cooking_int->image_path3) }}"></div>
         <div class="col-md-6">
           <p class="lead">{{ $cooking_int->body2 }}</p>
         </div>

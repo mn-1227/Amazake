@@ -61,6 +61,7 @@ Route::group(['prefix' => 'search'], function() {
     Route::get('/', 'AmazakeController@method');
    // Route::get('sort', 'AmazakeController@index');
     Route::get('introduction', 'AmazakeController@open');
+    Route::get('japan/introduction', 'AmazakeController@japanopen');
     Route::get('undameshi', 'AmazakeController@undameshi');
     Route::get('undameshi/today', 'AmazakeController@today');
     

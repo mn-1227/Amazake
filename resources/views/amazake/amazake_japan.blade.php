@@ -66,7 +66,8 @@
                     <table class="table table-info">
                         <thead>
                             <tr>
-                                <th width="10%"><input class="btn btn-ligft" type="submit" name="amazake" value="甘酒名"></th>
+                                <th><input class="btn btn-ligft" type="submit" name="amazake" value="甘酒名"></th>
+                                <th></th>
                         </thead>
                         <tbody>
                           <tr>
@@ -76,9 +77,9 @@
                             @foreach($posts as $amazake)
                                     <td>{{ \Str::limit($amazake->amazake, 100) }}</td>
           　　　</form>
-                                      <td>
+                                      <td class="text-right">
                                         <div>
-                                            <a href="{{ action('AmazakeController@open',['id' => $amazake->id]) }}">見てみる</a>
+                                            <a href="{{ action('AmazakeController@japanopen',['id' => $amazake->id]) }}">見てみる</a>
                                         </div>
                                       </td>
                                 </tr>

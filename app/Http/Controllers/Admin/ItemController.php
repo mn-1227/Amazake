@@ -25,8 +25,10 @@ class ItemController extends Controller
       
       // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
       if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $item->image_path = basename($path);
+        //$path = $request->file('image')->store('public/image');
+        //$item->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $item->image_path1 = Storage::disk('s3')->url($path);
       } else {
           $item->image_path = null;
       }
@@ -78,8 +80,10 @@ class ItemController extends Controller
       
       //image
       if (isset($item_form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $item->image_path = basename($path);
+        //$path = $request->file('image')->store('public/image');
+        //$item->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $item->image_path = Storage::disk('s3')->url($path);
         unset($item_form['image']);
       } elseif (isset($request->remove)) {
         $item->image_path = null;

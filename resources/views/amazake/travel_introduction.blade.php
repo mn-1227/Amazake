@@ -28,15 +28,15 @@
         <div class="col-md-12">
           <div class="carousel slide" data-ride="carousel" id="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-bubble-dark.svg">
+              <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="{{ asset('storage/image/'.$travel_int->image_path1) }}">
               </div>
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-bubble-light.svg">
+              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="{{ asset('storage/image/'.$travel_int->image_path2) }}">
                 <div class="carousel-caption">
                   <h5 class="m-0">Carousel</h5>
                   <p>with controls</p>
                 </div>
               </div>
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-moon.svg">
+              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="{{ asset('storage/image/'.$travel_int->image_path3) }}">
                 <div class="carousel-caption">
                   <h5 class="m-0">Carousel</h5>
                   <p>with controls</p>

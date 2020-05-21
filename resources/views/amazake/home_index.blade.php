@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
+          <div class="card"> <img class="card-img-top" src="{{ secure_asset('image/屋台.jpg') }}" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">甘酒を探す</h4>
               <p class="card-text">自分の好みの甘酒を見つけよう。<br>味の好みや、産地で探すことや、ランダムで甘酒を選ぶこともできます。<br></p> <a href="{{ action('AmazakeController@method') }}" class="btn btn-primary">甘酒検索へ</a>
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
+          <div class="card"> <img class="card-img-top" src="{{ secure_asset('image/健康.jpg') }}" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">甘酒の効果って？</h4>
               <p class="card-text">なんとなく身体にいいイメージがあるけど、実際どんな効果があるの？甘酒を飲むことでのメリットや注意をまとめました。</p> <a href="{{ action('TishikiController@index') }}" class="btn btn-primary">効果・効能へ</a>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
+          <div class="card"> <img class="card-img-top" src="{{ secure_asset('image/食べ物.jpg') }}" alt="Card image cap">
             <div class="card-body">
               <h4 class="card-title">こんな商品ありました</h4>
               <p class="card-text">飲むだけじゃないんです。<br>見つけた甘酒関連の商品を紹介したいと思います。</p> <a href="{{ action('ItemController@index') }}" class="btn btn-primary">関連商品へ</a>

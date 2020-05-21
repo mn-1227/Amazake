@@ -81,6 +81,15 @@
                                 <th class="text-center">
                                 　<div class="btn-group" >
                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">米麹の粒感</button>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/11')}}">大きい</a>
+                                     <div class="dropdown-divider"></div>
+                                     <a class="dropdown-item" href="{{url('search/sort/12')}}">小さい</a>
+                                    </div>
+                                 　</div>
+                                </th>
+                                <th class="text-center">
+                                　<div class="btn-group" >
+                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">クセ</button>
                                     <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/7')}}">大きい</a>
                                      <div class="dropdown-divider"></div>
                                      <a class="dropdown-item" href="{{url('search/sort/8')}}">小さい</a>
@@ -89,19 +98,10 @@
                                 </th>
                                 <th class="text-center">
                                 　<div class="btn-group" >
-                                   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">クセ</button>
-                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/9')}}">大きい</a>
-                                     <div class="dropdown-divider"></div>
-                                     <a class="dropdown-item" href="{{url('search/sort/10')}}">小さい</a>
-                                    </div>
-                                 　</div>
-                                </th>
-                                <th class="text-center">
-                                　<div class="btn-group" >
                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">値段</button>
-                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/11')}}">大きい</a>
+                                    <div class="dropdown-menu"> <a class="dropdown-item" href="{{url('search/sort/9')}}">高い</a>
                                      <div class="dropdown-divider"></div>
-                                     <a class="dropdown-item" href="{{url('search/sort/12')}}">小さい</a>
+                                     <a class="dropdown-item" href="{{url('search/sort/10')}}">安い</a>
                                     </div>
                                  　</div>
                                 </th>
@@ -119,8 +119,18 @@
                                         <div class="star-rating-back">★★★★★</div>
                                        </div>
                                       </td>
-                                    <td class="text-center">{{ $amazake->komekann}}</td>
-                                    <td class="text-center">{{$amazake->kuse}}</td>
+                                    <td class="text-center">
+                                        <div class="star-rating">
+                                        <div class="star-rating-front" style="width: {{ $amazake->komekann*20}}%">★★★★★</div>
+                                        <div class="star-rating-back">★★★★★</div>
+                                        </div>
+                                        </td>
+                                    <td class="text-center">
+                                        <div class="star-rating">
+                                        <div class="star-rating-front" style="width: {{ $amazake->kuse*20}}%">★★★★★</div>
+                                        <div class="star-rating-back">★★★★★</div>
+                                        </div>
+                                        </td>
                                     <td class="text-center">{{$amazake->nedan}}</td>
           　　　</form>
                                       <td>

@@ -132,6 +132,16 @@ class AmazakeController extends Controller
       // \Log::debug($amazake_int->image_path1);
       return view('amazake.amazake_introduction',compact('amazake_int'));
   }
+  public function japanopen(Request $request)
+  {
+      // amazake Modelからデータを取得する
+      $amazake_int = Amazake::find($request->id);
+      if (empty($amazake_int)) {
+        abort(404);    
+      }
+      // \Log::debug($amazake_int->image_path1);
+      return view('amazake.amazake_japanint',compact('amazake_int'));
+  }
    public function japan($name=null)
   {
       $posts = Amazake::orderBy('amazake', 'desc')->paginate(5);
