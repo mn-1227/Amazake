@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Amazake;
 use App\AmazakeHistory;
-
+use Storage;
 use Carbon\Carbon;
 
 
@@ -26,22 +26,34 @@ class AmazakeController extends Controller
       
       // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
       if (isset($form['image1'])) {
-        $path1 = $request->file('image1')->store('public/image');
-        $amazake->image_path1 = basename($path1);
+        //ローカルの画像保存方法
+       // $path1 = $request->file('image1')->store('public/image');
+       //herokuの方法
+        $path1 = Storage::disk('s3')->putFile('/',$form['image1'],'public');
+        $amazake->image_path1 = Storage::disk('s3')->url($path1);
+        //$amazake->image_path1 = basename($path1);
       } else {
           $amazake->image_path1 = null;
       }
       
       if (isset($form['image2'])) {
-        $path2 = $request->file('image2')->store('public/image');
-        $amazake->image_path2 = basename($path2);
+        //ローカルの画像保存方法
+       // $path2 = $request->file('image2')->store('public/image');
+       //herokuの方法
+        $path2 = Storage::disk('s3')->putFile('/',$form['image2'],'public');
+        $amazake->image_path2 = Storage::disk('s3')->url($path2);
+        //$amazake->image_path2 = basename($path2);
       } else {
           $amazake->image_path2 = null;
       }
       
       if (isset($form['image3'])) {
-        $path3 = $request->file('image3')->store('public/image');
-        $amazake->image_path3 = basename($path3);
+        //ローカルの画像保存方法
+       // $path3 = $request->file('image3')->store('public/image');
+       //herokuの方法
+        $path3 = Storage::disk('s3')->putFile('/',$form['image3'],'public');
+        $amazake->image_path3 = Storage::disk('s3')->url($path3);
+        //$amazake->image_path3 = basename($path3);
       } else {
           $amazake->image_path3 = null;
       }
@@ -60,6 +72,7 @@ class AmazakeController extends Controller
        //admin/amazake/createにリダイレクトする
        return redirect('admin/amazake/create');
   }  
+  
   public function index(Request $request)
   {
       $cond_title = $request->cond_title;
@@ -72,6 +85,7 @@ class AmazakeController extends Controller
       }
       return view('admin.amazake.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
+  
   public function edit(Request $request)
   {
       // amazake Modelからデータを取得する
@@ -94,8 +108,12 @@ class AmazakeController extends Controller
       
       //image1
       if (isset($amazake_form['image1'])) {
-        $path1 = $request->file('image1')->store('public/image');
-        $amazake->image_path1 = basename($path1);
+        //ローカルの画像保存方法
+        //$path1 = $request->file('image1')->store('public/image');
+        //herokuの方法
+        $path1 = Storage::disk('s3')->putFile('/',$form['image1'],'public');
+        $amazake->image_path1 = Storage::disk('s3')->url($path1);
+        //$amazake->image_path1 = basename($path1);
         unset($amazake_form['image1']);
       } elseif (isset($request->remove)) {
         $amazake->image_path1 = null;
@@ -103,8 +121,11 @@ class AmazakeController extends Controller
       }
       //image2
       if (isset($amazake_form['image2'])) {
-        $path2 = $request->file('image2')->store('public/image');
-        $amazake->image_path2 = basename($path2);
+       //ローカルの画像保存方法
+       // $path2 = $request->file('image2')->store('public/image');
+        $path2 = Storage::disk('s3')->putFile('/',$form['image2'],'public');
+        $amazake->image_path2 = Storage::disk('s3')->url($path2);
+        //$amazake->image_path2 = basename($path2);
         unset($amazake_form['image2']);
       } elseif (isset($request->remove)) {
         $amazake->image_path2 = null;
@@ -112,8 +133,11 @@ class AmazakeController extends Controller
       }
       //image3
       if (isset($amazake_form['image3'])) {
-        $path3 = $request->file('image3')->store('public/image');
-        $amazake->image_path3 = basename($path3);
+        //ローカルの画像保存方法
+        //$path3 = $request->file('image3')->store('public/image');
+        $path3 = Storage::disk('s3')->putFile('/',$form['image3'],'public');
+        $amazake->image_path3 = Storage::disk('s3')->url($path3);
+        //$amazake->image_path3 = basename($path3);
         unset($amazake_form['image3']);
       } elseif (isset($request->remove)) {
         $amazake->image_path3 = null;

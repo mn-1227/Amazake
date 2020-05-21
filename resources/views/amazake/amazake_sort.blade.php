@@ -113,7 +113,12 @@
                                 <tr>
                                     <td class="text-center">{{ $amazake->updated_at->format('Y年m月d日') }}</td>
                                     <td class="text-center">{{ \Str::limit($amazake->amazake, 100) }}</td>
-                                    <td class="text-center">{{ $amazake->amasa}}</td>
+                                    <td class="text-center">
+                                      <div class="star-rating">
+                                        <div class="star-rating-front" style="width: {{ $amazake->amasa*20}}%">★★★★★</div>
+                                        <div class="star-rating-back">★★★★★</div>
+                                       </div>
+                                      </td>
                                     <td class="text-center">{{ $amazake->komekann}}</td>
                                     <td class="text-center">{{$amazake->kuse}}</td>
                                     <td class="text-center">{{$amazake->nedan}}</td>

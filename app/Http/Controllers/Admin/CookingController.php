@@ -25,22 +25,29 @@ class CookingController extends Controller
       
       // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
       if (isset($form['image1'])) {
-        $path1 = $request->file('image1')->store('public/image');
-        $cooking->image_path1 = basename($path1);
+        //$path1 = $request->file('image1')->store('public/image');
+        //$cooking->image_path1 = basename($path1);
+        $path1 = Storage::disk('s3')->putFile('/',$form['image1'],'public');
+        $cooking->image_path1 = Storage::disk('s3')->url($path1);
       } else {
           $cooking->image_path1 = null;
       }
       
       if (isset($form['image2'])) {
-        $path2 = $request->file('image2')->store('public/image');
-        $cooking->image_path2 = basename($path2);
+        //$path2 = $request->file('image2')->store('public/image');
+        //$cooking->image_path2 = basename($path2);
+        $path2 = Storage::disk('s3')->putFile('/',$form['image2'],'public');
+        $cooking->image_path2 = Storage::disk('s3')->url($path2);
       } else {
           $cooking->image_path2 = null;
       }
       
       if (isset($form['image3'])) {
-        $path3 = $request->file('image3')->store('public/image');
-        $cooking->image_path3 = basename($path3);
+        //$path3 = $request->file('image3')->store('public/image');
+        //$cooking->image_path3 = basename($path3);
+        $path3 = Storage::disk('s3')->putFile('/',$form['image3'],'public');
+        $cooking->image_path3 = Storage::disk('s3')->url($path3);
+        
       } else {
           $cooking->image_path3 = null;
       }
@@ -93,8 +100,10 @@ class CookingController extends Controller
       
       //image1
       if (isset($cooking_form['image1'])) {
-        $path1 = $request->file('image1')->store('public/image');
-        $cooking->image_path1 = basename($path1);
+        //$path1 = $request->file('image1')->store('public/image');
+        //$cooking->image_path1 = basename($path1);
+        $path1 = Storage::disk('s3')->putFile('/',$form['image1'],'public');
+        $cooking->image_path1 = Storage::disk('s3')->url($path1);
         unset($cooking_form['image1']);
       } elseif (isset($request->remove)) {
         $cooking->image_path1 = null;
@@ -102,8 +111,10 @@ class CookingController extends Controller
       }
       //image2
       if (isset($cooking_form['image2'])) {
-        $path2 = $request->file('image2')->store('public/image');
-        $cooking->image_path2 = basename($path2);
+        //$path2 = $request->file('image2')->store('public/image');
+        //$cooking->image_path2 = basename($path2);
+        $path2 = Storage::disk('s3')->putFile('/',$form['image2'],'public');
+        $cooking->image_path2 = Storage::disk('s3')->url($path2);
         unset($cooking_form['image2']);
       } elseif (isset($request->remove)) {
         $cooking->image_path2 = null;
@@ -111,8 +122,10 @@ class CookingController extends Controller
       }
       //image3
       if (isset($cooking_form['image3'])) {
-        $path3 = $request->file('image3')->store('public/image');
-        $cooking->image_path3 = basename($path3);
+        //$path3 = $request->file('image3')->store('public/image');
+        //$cooking->image_path3 = basename($path3);
+        $path3 = Storage::disk('s3')->putFile('/',$form['image3'],'public');
+        $cooking->image_path3 = Storage::disk('s3')->url($path3);
         unset($cooking_form['image3']);
       } elseif (isset($request->remove)) {
         $cooking->image_path3 = null;
