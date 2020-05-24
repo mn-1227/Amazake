@@ -82,7 +82,7 @@ class ItemController extends Controller
       if (isset($item_form['image'])) {
         //$path = $request->file('image')->store('public/image');
         //$item->image_path = basename($path);
-        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $path = Storage::disk('s3')->putFile('/',$item_form['image'],'public');
         $item->image_path = Storage::disk('s3')->url($path);
         unset($item_form['image']);
       } elseif (isset($request->remove)) {

@@ -102,7 +102,7 @@ class TravelController extends Controller
       if (isset($travel_form['image1'])) {
         //$path1 = $request->file('image1')->store('public/image');
         //$travel->image_path1 = basename($path1);
-        $path1 = Storage::disk('s3')->putFile('/',$form['image1'],'public');
+        $path1 = Storage::disk('s3')->putFile('/',$travel_form['image1'],'public');
         $travel->image_path1 = Storage::disk('s3')->url($path1);
         unset($travel_form['image1']);
       } elseif (isset($request->remove)) {
@@ -113,7 +113,7 @@ class TravelController extends Controller
       if (isset($travel_form['image2'])) {
         //$path2 = $request->file('image2')->store('public/image');
        // $travel->image_path2 = basename($path2);
-        $path2 = Storage::disk('s3')->putFile('/',$form['image2'],'public');
+        $path2 = Storage::disk('s3')->putFile('/',$travel_form['image2'],'public');
         $travel->image_path2 = Storage::disk('s3')->url($path2);
         unset($travel_form['image2']);
       } elseif (isset($request->remove)) {
@@ -124,7 +124,7 @@ class TravelController extends Controller
       if (isset($travel_form['image3'])) {
         //$path3 = $request->file('image3')->store('public/image');
         //$travel->image_path3 = basename($path3);
-        $path3 = Storage::disk('s3')->putFile('/',$form['image3'],'public');
+        $path3 = Storage::disk('s3')->putFile('/',$travel_form['image3'],'public');
         $travel->image_path3 = Storage::disk('s3')->url($path3);
         unset($travel_form['image3']);
       } elseif (isset($request->remove)) {

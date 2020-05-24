@@ -82,7 +82,7 @@ class TishikiController extends Controller
       if (isset($amazake_form['image'])) {
         //$path = $request->file('image')->store('public/image');
         //$tishiki->image_path = basename($path);
-        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $path = Storage::disk('s3')->putFile('/',$tishiki_form['image'],'public');
         $tishiki->image_path = Storage::disk('s3')->url($path);
         unset($tishiki_form['image']);
       } elseif (isset($request->remove)) {

@@ -30,7 +30,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="card"> <img class="card-img" src="{{ asset('storage/image/'.$item_int->image_path) }}" alt="Card image" >
+          <div class="card"> <img class="card-img" src="{{ $item_int->image_path }}" alt="Card image" >
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p>
+          <p class="lead">{{ $item_int->body }}</p>
         </div>
       </div>
     </div>
