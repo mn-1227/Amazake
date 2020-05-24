@@ -46,7 +46,7 @@
           <li class="nav-item"> <a class="nav-link" href="{{ action('TravelController@index') }}">旅先記録</a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ action('CookingController@index') }}">甘酒料理</a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ action('KurashiController@info') }}">このサイトについて</a> </li>
-        </ul> <a class="btn btn-outline-light navbar-btn ml-md-2">Contact us</a>
+        </ul> 
       </div>
     </div>
   </nav>
