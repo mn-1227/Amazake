@@ -33,7 +33,7 @@
   <div class="py-1" style="">
     <div class="container">
       <div class="row">
-        <div class="col-md-6" style=""><img class="img-fluid d-block" src="{{$tishiki_int->image_path }}" style=""></div>
+        <div class="col-md-6" style=""><img class="img-fluid d-block" src="{{$tishiki_int->image_path }}" style="" width="300"></div>
         <div class="col-md-6">
           <p class="lead">{{ $tishiki_int->body }}</p>
         </div>

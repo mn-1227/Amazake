@@ -29,17 +29,11 @@
   <div class="py-1" style="">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="card"> <img class="card-img" src="{{ $item_int->image_path }}" alt="Card image" >
+        <div class="col-md-6">
+          <div class="card"> <img class="card-img" src="{{ $item_int->image_path }}" alt="Card image"  width="300">
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <p class="lead">{{ $item_int->body }}</p>
         </div>
       </div>
