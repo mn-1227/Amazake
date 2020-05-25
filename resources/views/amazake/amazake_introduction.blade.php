@@ -29,7 +29,7 @@
   <div class="py-1" style="">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="carousel slide" data-ride="carousel" id="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active"> <img class="d-block img-fluid mx-auto" style="" src="{{$amazake_int->image_path1}}" width="300">
@@ -41,12 +41,6 @@
             </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
         <div class="col-md-6">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">甘さ: 
@@ -73,7 +67,13 @@
             <li class="list-group-item">link: {{ $amazake_int->link }}</li>
           </ul>
         </div>
-        <div class="col-md-6">
+        </div>
+    </div>
+  </div>
+   <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
           <p class="lead">{{ $amazake_int->kansou }}</p>
         </div>
       </div>
