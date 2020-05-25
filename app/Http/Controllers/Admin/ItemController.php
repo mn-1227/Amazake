@@ -28,7 +28,7 @@ class ItemController extends Controller
         //$path = $request->file('image')->store('public/image');
         //$item->image_path = basename($path);
         $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
-        $item->image_path1 = Storage::disk('s3')->url($path);
+        $item->image_path = Storage::disk('s3')->url($path);
       } else {
           $item->image_path = null;
       }
