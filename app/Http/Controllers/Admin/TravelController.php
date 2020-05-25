@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Travel;
 use App\TravelHistory;
-
+use Storage;
 use Carbon\Carbon;
 
 class TravelController extends Controller

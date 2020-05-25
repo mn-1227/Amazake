@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cooking;
 use App\CookingHistory;
-
+use Storage;
 use Carbon\Carbon;
 
 class CookingController extends Controller
