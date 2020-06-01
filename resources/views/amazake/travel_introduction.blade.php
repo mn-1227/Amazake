@@ -53,7 +53,7 @@
               <h5 class="card-title">情報</h5>
               <h6 class="card-subtitle my-2 text-muted">訪れた場所:{{ $travel_int->basyo }}</h6>
               <p class="card-text">住所:{{ $travel_int->address }}</p>
-              <a href="#" class="card-link">リンク<link rel="stylesheet" href="{{ $travel_int->link }}" type="text/css" /></a>
+              <a href="#" class="card-link">行ったのはここ！<link rel="stylesheet" href="{{ $travel_int->link }}" type="text/css" /></a>
             </div>
           </div>
         </div>
