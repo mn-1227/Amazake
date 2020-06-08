@@ -19,12 +19,15 @@ class AmazakeController extends Controller
      public function create(Request $request)
   {
        // Varidationを行う
+       //入力内容や記述内容が要件を満たしているか、妥当性を確認すること
       $this->validate($request, Amazake::$rules);
       
       $amazake = new Amazake;
       $form = $request->all();
       
-      // フォームから画像が送信されてきたら、保存して、$phpto->image_path に画像のパスを保存する
+      // フォームから画像が送信されてきたら、保存して、画像のパスを保存する
+      //isset関数は、この変数に値がはいっているかどうかをチェックする関数
+      //isset関数は、変数に値がセットされていて、かつNULLでないときに、TRUE(真)を戻り値として返す。
       if (isset($form['image1'])) {
         //ローカルの画像保存方法
        // $path1 = $request->file('image1')->store('public/image');
@@ -62,6 +65,8 @@ class AmazakeController extends Controller
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
       // フォームから送信されてきたimageを削除する
+      //大規模なプログラムになるとメモリの開放などを考える必要になることがある。
+      //そういった場合にunset関数を使ってサイズの大きい変数を開放すると、メモリの節約ができるようになる。
       unset($form['image1']);
       unset($form['image2']);
       unset($form['image3']);
@@ -71,6 +76,8 @@ class AmazakeController extends Controller
         $amazake->save();
       
        //admin/amazake/createにリダイレクトする
+       //view()はWebページのアクセス時などのGET処理時に利用。
+       //redirect()はフォーム送信などのPOST時に利用。
        return redirect('admin/amazake/create');
   }  
   
